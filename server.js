@@ -19,7 +19,7 @@ connectToDB()
 
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, 'client', 'build')))
+app.use(express.static(path.join(__dirname, 'client', 'dist')))
 
 app.use('/api/auth', require('./routes/userRouter'))
 app.use('/api/main', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
@@ -34,7 +34,7 @@ app.use((err, req, res, next) => {
 })
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 app.listen(7551, () => {
