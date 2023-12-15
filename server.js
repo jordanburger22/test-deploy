@@ -38,5 +38,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(7551, () => {
-    console.log('server is running on port 7550')
+    console.log('server is running on port 7551')
 })
